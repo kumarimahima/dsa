@@ -1,7 +1,7 @@
 class Solution {
     static int beauty(int[] nums, int min)  {
         int max = 1;
-        for (int i=0;i<126;i++) {
+        for (int i=0;i<26;i++) {
             if(nums[i]!=0) min = Math.min(min, nums[i]);
             max = Math.max(max, nums[i]);
         }
@@ -9,12 +9,12 @@ class Solution {
     }
 
     public int beautySum(String s) {
-        int nums[] = new int[126];
+        int nums[] = new int[26];
         int result = 0;
         int size = s.length();
         for (int i=0;i<size;i++) {
             for (int j=i;j<size;j++){
-                nums[s.charAt(j)]++;
+                nums[s.charAt(j)-'a']++;
                 int beautyValue = beauty(nums, size);
                 result += beautyValue;
             }
